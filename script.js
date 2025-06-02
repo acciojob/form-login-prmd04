@@ -1,4 +1,6 @@
-document.getElementById("form1").addEventListener("submit", getFormvalue);
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("form1").addEventListener("submit", getFormvalue);
+});
 
 function getFormvalue(event) {
   event.preventDefault();
@@ -7,11 +9,11 @@ function getFormvalue(event) {
   const fname = form.elements["fname"].value.trim();
   const lname = form.elements["lname"].value.trim();
 
-  if (!fname && !lname) {
-    alert("Please enter your name.");
-    return;
-  }
-
   const fullName = [fname, lname].filter(Boolean).join(" ");
-  alert(fullName);
+
+  if (!fullName) {
+    alert("Please enter your name.");
+  } else {
+    alert(fullName);
+  }
 }
